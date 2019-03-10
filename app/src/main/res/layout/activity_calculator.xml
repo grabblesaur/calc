@@ -10,30 +10,78 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content">
 
-		<LinearLayout
-			android:orientation="horizontal"
+		<androidx.constraintlayout.widget.ConstraintLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
 
 			<androidx.appcompat.widget.AppCompatEditText
 				android:id="@+id/leftValueEditText"
+				app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintRight_toLeftOf="@id/radioGroup"
 				android:layout_margin="@dimen/default_margin"
-				android:padding="@dimen/default_padding"
-				android:textSize="@dimen/default_text_size"
-				android:layout_width="wrap_content"
+				android:textSize="@dimen/et_text_size"
+				app:layout_constraintHorizontal_weight="1"
+				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				android:inputType="number"/>
+				android:inputType="numberDecimal"/>
+
+			<RadioGroup
+				android:id="@+id/radioGroup"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintLeft_toRightOf="@id/leftValueEditText"
+				app:layout_constraintRight_toLeftOf="@id/rightValueEditText"
+				app:layout_constraintHorizontal_weight="0.5"
+				android:layout_width="0dp"
+				android:layout_height="wrap_content">
+
+				<RadioButton
+					android:id="@+id/plusRadioButton"
+					android:checked="true"
+					android:textSize="@dimen/default_text_size"
+					android:text="@string/plus"
+					android:layout_width="@dimen/radio_button_size"
+					android:layout_height="@dimen/radio_button_size"/>
+
+				<RadioButton
+					android:id="@+id/minusRadioButton"
+					android:textSize="@dimen/default_text_size"
+					android:text="@string/minus"
+					android:layout_width="@dimen/radio_button_size"
+					android:layout_height="@dimen/radio_button_size"/>
+
+				<RadioButton
+					android:id="@+id/multiplyRadioButton"
+					android:textSize="@dimen/default_text_size"
+					android:text="@string/multiply"
+					android:layout_width="@dimen/radio_button_size"
+					android:layout_height="@dimen/radio_button_size"/>
+
+				<RadioButton
+					android:id="@+id/divideRadioButton"
+					android:textSize="@dimen/default_text_size"
+					android:text="@string/divide"
+					android:layout_width="@dimen/radio_button_size"
+					android:layout_height="@dimen/radio_button_size"/>
+
+			</RadioGroup>
 
 			<androidx.appcompat.widget.AppCompatEditText
 				android:id="@+id/rightValueEditText"
+				app:layout_constraintTop_toTopOf="parent"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintLeft_toRightOf="@id/radioGroup"
+				app:layout_constraintRight_toRightOf="parent"
 				android:layout_margin="@dimen/default_margin"
-				android:padding="@dimen/default_padding"
-				android:textSize="@dimen/default_text_size"
-				android:layout_width="wrap_content"
+				android:textSize="@dimen/et_text_size"
+				app:layout_constraintHorizontal_weight="1"
+				android:layout_width="0dp"
 				android:layout_height="wrap_content"
-				android:inputType="number"/>
+				android:inputType="numberDecimal"/>
 
-		</LinearLayout>
+		</androidx.constraintlayout.widget.ConstraintLayout>
 
 		<TextView
 			android:id="@+id/resultTextView"
